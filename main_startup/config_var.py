@@ -42,6 +42,7 @@ class Config((object)):
     BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
     REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None)
     STRINGSESSION = os.environ.get("STRINGSESSION", None)
+    STACY_SESSION = os.environ.get("STACY_SESSSION", None)
     ASSISTANT_START_PIC = os.environ.get(
         "ASSISTANT_START_PIC", "https://telegra.ph//file/92c1a600394c723db90fc.jpg"
     )
