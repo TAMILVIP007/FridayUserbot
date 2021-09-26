@@ -11,6 +11,8 @@ import os
 import time
 import motor.motor_asyncio
 from pyrogram import Client
+from telethon import TelegramClient
+from telethon.sessions import StringSession
 
 from .config_var import Config
 
@@ -58,6 +60,14 @@ if Config.STRINGSESSION:
         api_hash=Config.API_HASH,
         sleep_threshold=180,
     )
+if Config.STACY_SESSION:
+    stacy = TelegramClient(
+        StringSession(
+            Config.STACY_SESSION,
+            api_id=Config.API_ID,
+            api_hash=Config.API_HASH
+            ))
+    
 if Config.STRINGSESSION_2:
     Friday2 = Client(
         Config.STRINGSESSION_2,
