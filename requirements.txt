@@ -3,6 +3,7 @@ filesplit
 google-trans-new
 wget>=3.2
 CairoSVG>=2.5.2
+telethon
 faker>=6.6.2
 html5lib
 langdetect>=1.0.8
