@@ -18,9 +18,9 @@ from main_startup import (
     Friday,
     Friday2,
     Friday3,
+    Stacy,
     Friday4,
     bot,
-    Stacy,
     friday_version,
     mongo_client,
 )
