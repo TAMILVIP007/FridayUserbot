@@ -18,7 +18,6 @@ from main_startup import (
     Friday,
     Friday2,
     Friday3,
-    Stacy,
     Friday4,
     bot,
     friday_version,
@@ -129,4 +128,3 @@ You Can Visit @FridaySupportOfficial For Updates And @FridayChat For Any Query /
 
 if __name__ == "__main__":
     Friday.loop.run_until_complete(run_bot())
-    Stacy.start()
