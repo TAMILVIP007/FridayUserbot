@@ -20,8 +20,7 @@ from main_startup import (
     Friday3,
     Friday4,
     bot,
-    stacy,
-   
+    Stacy,
     friday_version,
     mongo_client,
 )
@@ -130,4 +129,4 @@ You Can Visit @FridaySupportOfficial For Updates And @FridayChat For Any Query /
 
 if __name__ == "__main__":
     Friday.loop.run_until_complete(run_bot())
-    stacy.start()
+    Stacy.start()
