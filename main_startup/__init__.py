@@ -63,10 +63,10 @@ if Config.STRINGSESSION:
 if Config.STACY_SESSION:
     stacy = TelegramClient(
         StringSession(
-            Config.STACY_SESSION,
+            Config.STACY_SESSION),
             api_id=Config.API_ID,
             api_hash=Config.API_HASH
-            ))
+            )
     
 if Config.STRINGSESSION_2:
     Friday2 = Client(
