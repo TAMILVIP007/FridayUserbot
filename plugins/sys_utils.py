@@ -51,20 +51,20 @@ async def pingy(client, message):
 )
 async def amialive(client, message):
     engine = message.Engine
-    img_ = Config.ALIVE_IMG
+    img_ = lol.mp4
     me_ = client.me.first_name
     du = psutil.disk_usage(client.workdir)
     disk = f"{humanbytes(du.used)} / {humanbytes(du.total)} " f"({du.percent}%)"
     alive = engine.get_string("ALIVE_").format(me_, friday_version, get_readable_time((time.time() - start_time)), __version__, platform.python_version(), platform.system(), len(psutil.Process().cpu_affinity()), disk)
     if message.reply_to_message:
-        await client.send_photo(
+        await client.send_video(
             message.chat.id,
             img_,
             caption=alive,
             reply_to_message_id=message.reply_to_message.message_id,
         )
     else:
-        await client.send_photo(message.chat.id, img_, caption=alive)
+        await client.send_video(message.chat.id, img_, caption=alive)
     await delete_or_pass(message)
 
 
