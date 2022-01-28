@@ -29,9 +29,8 @@ def load_xtra_mod(plugin_name):
     """Load All Extra Plugins Using ImportLib"""
     if plugin_name not in Config.XTRA_NO_LOAD:
         plugin_path = "xtraplugins." + plugin_name
-        loader_type = "[USER][XTRA-PLUGINS]"
         importlib.import_module(plugin_path)
-        logging.info(f"{loader_type} - Loaded : " + str(plugin_name))
+        logging.info(f'[USER][XTRA-PLUGINS] - Loaded : ' + str(plugin_name))
 
 
 def load_plugin(plugin_name, assistant=False):

@@ -968,7 +968,7 @@ class googleimagesdownload:
                 },
             ],
         }
-        for key, value in params.items():
+        for value in params.values():
             if value[0] is not None:
                 ext_param = value[1][value[0]]
                 # counter will tell if it is first param added or not
@@ -1101,11 +1101,7 @@ class googleimagesdownload:
             )
             try:
                 # timeout time to download an image
-                if socket_timeout:
-                    timeout = float(socket_timeout)
-                else:
-                    timeout = 10
-
+                timeout = float(socket_timeout) if socket_timeout else 10
                 response = urlopen(req, None, timeout)
                 data = response.read()
                 response.close()
@@ -1120,14 +1116,12 @@ class googleimagesdownload:
                 )
 
                 try:
-                    output_file = open(path, "wb")
-                    output_file.write(data)
-                    output_file.close()
+                    with open(path, "wb") as output_file:
+                        output_file.write(data)
                     if save_source:
                         list_path = main_directory + "/" + save_source + ".txt"
-                        list_file = open(list_path, "a")
-                        list_file.write(path + "\t" + img_src + "\n")
-                        list_file.close()
+                        with open(list_path, "a") as list_file:
+                            list_file.write(path + "\t" + img_src + "\n")
                 except OSError as e:
                     download_status = "fail"
                     download_message = (
@@ -1514,9 +1508,7 @@ class googleimagesdownload:
             records = []
             json_file = json.load(open(arguments["config_file"]))
             for record in range(len(json_file["Records"])):
-                arguments = {}
-                for i in args_list:
-                    arguments[i] = None
+                arguments = {i: None for i in args_list}
                 for key, value in json_file["Records"][record].items():
                     arguments[key] = value
                 records.append(arguments)

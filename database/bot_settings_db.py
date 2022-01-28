@@ -46,25 +46,16 @@ async def add_pm_thumb(thumb=default_thumb):
 
 async def get_thumb():
     ujwal = await bsdb.find_one({"_id": "PM_START_THUMB"})
-    if ujwal:
-        return ujwal["pm_img"]
-    else:
-        return None 
+    return ujwal["pm_img"] if ujwal else None 
 
 
 async def get_pm_text():
     ujwal = await bsdb.find_one({"_id": "PM_START_MSG"})
-    if ujwal:
-        return ujwal["pm_msg"]
-    else:
-        return default_text
+    return ujwal["pm_msg"] if ujwal else default_text
     
 async def get_block_text():
     __ = await bsdb.find_one({"_id": "PM_BLOCK_MSG"})
-    if __:
-        return __["msg"]
-    else:
-        return default_bloco_text
+    return __["msg"] if __ else default_bloco_text
 
 
 async def set_pm_spam_limit(psl=3):
@@ -77,7 +68,4 @@ async def set_pm_spam_limit(psl=3):
 
 async def get_pm_spam_limit():
     meisnub = await bsdb.find_one({"_id": "LIMIT_PM"})
-    if meisnub:
-        return int(meisnub["psl"])
-    else:
-        return 3
+    return int(meisnub["psl"]) if meisnub else 3
